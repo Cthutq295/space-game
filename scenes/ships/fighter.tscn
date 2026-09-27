@@ -1,0 +1,50 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ai_ship.gd" id="1_8pylg"]
+[ext_resource type="Material" path="res://materials/team_enemy.tres" id="2_1q2j0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fighter.png" id="3_cn4e2"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="4_4nkuu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4tlg"]
+radius = 15.0
+
+[node name="Fighter" type="CharacterBody2D" unique_id=292880933]
+script = ExtResource("1_8pylg")
+kind = "fighter"
+aggro_range = 900.0
+max_hull = 34.0
+loot = {
+"scrap": 5
+}
+explosion_size = 24.0
+thrust = 950.0
+max_speed = 440.0
+drag = 0.9
+turn_speed = 4.5
+exhaust_strength = 0.8
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1301026500]
+material = ExtResource("2_1q2j0")
+scale = Vector2(2, 2)
+texture = ExtResource("3_cn4e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=522664910]
+shape = SubResource("CircleShape2D_c4tlg")
+
+[node name="Weapon" type="Node2D" parent="." unique_id=299403487]
+script = ExtResource("4_4nkuu")
+damage = 6.0
+speed = 950.0
+interval = 0.32
+inaccuracy = 0.04
+sound_db = -17.0
+sound_pitch = 0.8
+
+[node name="Muzzle1" type="Marker2D" parent="Weapon" unique_id=1901438177]
+position = Vector2(18, -8)
+
+[node name="Muzzle2" type="Marker2D" parent="Weapon" unique_id=1405331598]
+position = Vector2(18, 8)
+
+[node name="Exhaust1" type="Marker2D" parent="." unique_id=1462817229]
+position = Vector2(-16, 0)

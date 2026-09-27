@@ -1,0 +1,176 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/space_background.gd" id="1_h6h8t"]
+[ext_resource type="Texture2D" path="res://assets/bg/nebula_far.png" id="2_g55b2"]
+[ext_resource type="Texture2D" path="res://assets/bg/stars_far.png" id="3_1gibu"]
+[ext_resource type="Texture2D" path="res://assets/bg/nebula_teal.png" id="4_5fyxb"]
+[ext_resource type="Texture2D" path="res://assets/bg/bigstar_blue.png" id="5_utxhf"]
+[ext_resource type="Texture2D" path="res://assets/bg/galaxy_blue.png" id="6_kwjlu"]
+[ext_resource type="Texture2D" path="res://assets/bg/far_planet_ringed.png" id="7_8iika"]
+[ext_resource type="Texture2D" path="res://assets/bg/bigstar_red.png" id="8_euaav"]
+[ext_resource type="Texture2D" path="res://assets/bg/stars_mid.png" id="9_1i2ek"]
+[ext_resource type="Texture2D" path="res://assets/bg/star_cluster.png" id="10_bfd0f"]
+[ext_resource type="Texture2D" path="res://assets/bg/galaxy_gold.png" id="11_1drxw"]
+[ext_resource type="Texture2D" path="res://assets/bg/nebula_near.png" id="12_5uur1"]
+[ext_resource type="Shader" path="res://shaders/twinkle.gdshader" id="13_uwj38"]
+[ext_resource type="Texture2D" path="res://assets/bg/stars_near.png" id="14_ooj3x"]
+[ext_resource type="Texture2D" path="res://assets/bg/dust.png" id="15_30eve"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wv2ab"]
+shader = ExtResource("13_uwj38")
+shader_parameter/speed = null
+shader_parameter/peak = null
+
+[node name="SpaceBackground" type="Node2D" unique_id=1129231109]
+script = ExtResource("1_h6h8t")
+
+[node name="NebulaFar" type="Parallax2D" parent="." unique_id=1306610574]
+scroll_scale = Vector2(0.03, 0.03)
+repeat_size = Vector2(960, 960)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="NebulaFar" unique_id=1888652995]
+scale = Vector2(3, 3)
+texture = ExtResource("2_g55b2")
+centered = false
+
+[node name="StarsFar" type="Parallax2D" parent="." unique_id=1622189153]
+scroll_scale = Vector2(0.06, 0.06)
+repeat_size = Vector2(512, 512)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="StarsFar" unique_id=1755093033]
+scale = Vector2(2, 2)
+texture = ExtResource("3_1gibu")
+centered = false
+
+[node name="NebulaTeal" type="Parallax2D" parent="." unique_id=591875039]
+scroll_scale = Vector2(0.09, 0.09)
+scroll_offset = Vector2(300, 700)
+repeat_size = Vector2(768, 768)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="NebulaTeal" unique_id=1708953441]
+modulate = Color(1, 1, 1, 0.6)
+scale = Vector2(3, 3)
+texture = ExtResource("4_5fyxb")
+centered = false
+
+[node name="DecorFar" type="Parallax2D" parent="." unique_id=539729533]
+scroll_scale = Vector2(0.12, 0.12)
+repeat_size = Vector2(3400, 3400)
+repeat_times = 2
+
+[node name="BigstarBlue" type="Sprite2D" parent="DecorFar" unique_id=1856611444]
+modulate = Color(1.6, 1.6, 1.9, 1)
+position = Vector2(3317.365, 1160.2222)
+scale = Vector2(2, 2)
+texture = ExtResource("5_utxhf")
+
+[node name="GalaxyBlue" type="Sprite2D" parent="DecorFar" unique_id=1799977146]
+modulate = Color(0.9, 0.8, 1, 0.7)
+position = Vector2(1320.4185, 1543.3876)
+scale = Vector2(2, 2)
+texture = ExtResource("6_kwjlu")
+
+[node name="GalaxyBlue2" type="Sprite2D" parent="DecorFar" unique_id=7212124]
+modulate = Color(1, 1, 1, 0.9)
+position = Vector2(1001.2947, 2627.045)
+scale = Vector2(3, 3)
+texture = ExtResource("6_kwjlu")
+
+[node name="FarPlanetRinged" type="Sprite2D" parent="DecorFar" unique_id=75867706]
+modulate = Color(0.85, 0.85, 0.95, 1)
+position = Vector2(2826.0295, 2981.8557)
+scale = Vector2(3, 3)
+texture = ExtResource("7_8iika")
+
+[node name="BigstarRed" type="Sprite2D" parent="DecorFar" unique_id=167146380]
+modulate = Color(1.7, 1.4, 1.3, 1)
+position = Vector2(103.042725, 2969.752)
+scale = Vector2(2, 2)
+texture = ExtResource("8_euaav")
+
+[node name="StarsMid" type="Parallax2D" parent="." unique_id=1764033724]
+scroll_scale = Vector2(0.18, 0.18)
+scroll_offset = Vector2(170, 90)
+repeat_size = Vector2(512, 512)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="StarsMid" unique_id=1570872312]
+modulate = Color(0.8, 0.82, 0.9, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("9_1i2ek")
+centered = false
+
+[node name="DecorNear" type="Parallax2D" parent="." unique_id=6280881]
+scroll_scale = Vector2(0.22, 0.22)
+repeat_size = Vector2(5200, 5200)
+repeat_times = 2
+
+[node name="StarCluster" type="Sprite2D" parent="DecorNear" unique_id=1899179933]
+modulate = Color(1, 0.9, 0.9, 0.8)
+position = Vector2(1494.0963, 3829.4707)
+scale = Vector2(2, 2)
+texture = ExtResource("10_bfd0f")
+
+[node name="GalaxyGold" type="Sprite2D" parent="DecorNear" unique_id=506937581]
+modulate = Color(1, 1, 1, 0.85)
+position = Vector2(2494.5137, 720.13135)
+scale = Vector2(3, 3)
+texture = ExtResource("11_1drxw")
+
+[node name="BigstarBlue" type="Sprite2D" parent="DecorNear" unique_id=1720197885]
+modulate = Color(1.6, 1.6, 1.9, 1)
+position = Vector2(599.94446, 1966.7632)
+scale = Vector2(2, 2)
+texture = ExtResource("5_utxhf")
+
+[node name="GalaxyBlue" type="Sprite2D" parent="DecorNear" unique_id=777064265]
+modulate = Color(0.9, 0.8, 1, 0.7)
+position = Vector2(4944.2373, 5004.9116)
+scale = Vector2(2, 2)
+texture = ExtResource("6_kwjlu")
+
+[node name="NebulaNear" type="Parallax2D" parent="." unique_id=1790640604]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(512, 200)
+repeat_size = Vector2(1024, 1024)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="NebulaNear" unique_id=1343630375]
+modulate = Color(1, 1, 1, 0.5)
+scale = Vector2(4, 4)
+texture = ExtResource("12_5uur1")
+centered = false
+
+[node name="StarsNear" type="Parallax2D" parent="." unique_id=123731493]
+scroll_scale = Vector2(0.45, 0.45)
+repeat_size = Vector2(512, 512)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="StarsNear" unique_id=1918118406]
+modulate = Color(0.85, 0.87, 0.95, 1)
+material = SubResource("ShaderMaterial_wv2ab")
+scale = Vector2(2, 2)
+texture = ExtResource("14_ooj3x")
+centered = false
+
+[node name="Dust" type="Parallax2D" parent="." unique_id=1624714683]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(64, 300)
+repeat_size = Vector2(512, 512)
+repeat_times = 5
+metadata/tiled = true
+
+[node name="Tile" type="Sprite2D" parent="Dust" unique_id=1047591640]
+modulate = Color(1, 1, 1, 0.5)
+scale = Vector2(2, 2)
+texture = ExtResource("15_30eve")
+centered = false

@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/level/asteroid_field.gd" id="1_1dmh2"]
+
+[node name="AsteroidField" type="Node2D" unique_id=1643157637]
+script = ExtResource("1_1dmh2")

@@ -1,0 +1,34 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/defense_post.gd" id="1_7vipr"]
+[ext_resource type="Material" path="res://materials/team_ally.tres" id="2_fbflt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/post.png" id="3_u4kqh"]
+[ext_resource type="Texture2D" path="res://assets/sprites/key_e.png" id="4_i45ib"]
+[ext_resource type="Script" path="res://scripts/level/radius_gizmo.gd" id="5_n6syr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqup4"]
+radius = 38.0
+
+[node name="DefensePost" type="StaticBody2D" unique_id=58393778]
+script = ExtResource("1_7vipr")
+max_hull = 450.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493260652]
+shape = SubResource("CircleShape2D_nqup4")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=627599658]
+material = ExtResource("2_fbflt")
+scale = Vector2(2, 2)
+texture = ExtResource("3_u4kqh")
+
+[node name="Key" type="Sprite2D" parent="." unique_id=199616861 groups=["untinted"]]
+z_index = 10
+position = Vector2(0, -72)
+scale = Vector2(2, 2)
+texture = ExtResource("4_i45ib")
+
+[node name="AuraGizmo" type="Node2D" parent="." unique_id=1470490236]
+script = ExtResource("5_n6syr")
+radius = 230.0
+color = Color(0.4, 0.8, 1, 0.6)
+radius_property = "aura_radius"

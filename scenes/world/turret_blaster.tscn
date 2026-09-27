@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/turret.gd" id="1_yelaw"]
+[ext_resource type="Material" path="res://materials/team_ally.tres" id="2_f0s6f"]
+[ext_resource type="Texture2D" path="res://assets/sprites/turret_base.png" id="3_20kvu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/turret_gun.png" id="4_x2t6r"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="5_d5m68"]
+[ext_resource type="Script" path="res://scripts/level/radius_gizmo.gd" id="6_pb2k0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2311"]
+radius = 20.0
+
+[node name="TurretBlaster" type="StaticBody2D" unique_id=630143318]
+script = ExtResource("1_yelaw")
+max_hull = 160.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=411126183]
+shape = SubResource("CircleShape2D_y2311")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1274801494]
+material = ExtResource("2_f0s6f")
+scale = Vector2(2, 2)
+texture = ExtResource("3_20kvu")
+
+[node name="Head" type="Node2D" parent="." unique_id=585637996]
+
+[node name="HeadSprite" type="Sprite2D" parent="Head" unique_id=158057180]
+material = ExtResource("2_f0s6f")
+scale = Vector2(2, 2)
+texture = ExtResource("4_x2t6r")
+offset = Vector2(3.5, 0)
+
+[node name="Weapon" type="Node2D" parent="Head" unique_id=508626410]
+script = ExtResource("5_d5m68")
+damage = 4.0
+speed = 1100.0
+interval = 0.09
+magazine = 18
+reload_time = 4.0
+inaccuracy = 0.03
+life = 0.9
+sound_db = -18.0
+sound_pitch = 1.15
+
+[node name="Muzzle1" type="Marker2D" parent="Head/Weapon" unique_id=1128177161]
+position = Vector2(23, -5)
+
+[node name="Muzzle2" type="Marker2D" parent="Head/Weapon" unique_id=1967654255]
+position = Vector2(23, 5)
+
+[node name="RangeGizmo" type="Node2D" parent="." unique_id=971194414]
+script = ExtResource("6_pb2k0")
+radius = 750.0
+color = Color(1, 0.6, 0.3, 0.35)
+radius_property = "attack_range"

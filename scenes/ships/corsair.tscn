@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ai_ship.gd" id="1_gyvfu"]
+[ext_resource type="Material" path="res://materials/team_enemy.tres" id="2_5xyva"]
+[ext_resource type="Texture2D" path="res://assets/sprites/corsair.png" id="3_srn01"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="4_2ibgo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubkt0"]
+radius = 18.0
+
+[node name="Corsair" type="CharacterBody2D" unique_id=931166715]
+script = ExtResource("1_gyvfu")
+kind = "corsair"
+aggro_range = 1000.0
+max_shield = 25.0
+max_hull = 50.0
+loot = {
+"scrap": 8
+}
+explosion_size = 32.0
+thrust = 1150.0
+max_speed = 480.0
+drag = 1.1
+turn_speed = 6.0
+turn_response = 9.0
+exhaust_width = 2.5
+exhaust_strength = 0.9
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1901229264]
+material = ExtResource("2_5xyva")
+scale = Vector2(2, 2)
+texture = ExtResource("3_srn01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=137536883]
+shape = SubResource("CircleShape2D_ubkt0")
+
+[node name="Weapon" type="Node2D" parent="." unique_id=708809767]
+script = ExtResource("4_2ibgo")
+damage = 5.0
+interval = 0.07
+magazine = 3
+reload_time = 0.8
+inaccuracy = 0.025
+life = 1.0
+sound_db = -16.0
+sound_pitch = 0.95
+
+[node name="Muzzle1" type="Marker2D" parent="Weapon" unique_id=930737738]
+position = Vector2(22, -13)
+
+[node name="Muzzle2" type="Marker2D" parent="Weapon" unique_id=923483686]
+position = Vector2(22, 13)
+
+[node name="Exhaust1" type="Marker2D" parent="." unique_id=1725650822]
+position = Vector2(-26, -7)
+
+[node name="Exhaust2" type="Marker2D" parent="." unique_id=1019675611]
+position = Vector2(-26, 7)

@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/planet.gd" id="1_gpobt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/planet_terra.png" id="2_6huyh"]
+
+[node name="Planet" type="StaticBody2D" unique_id=1354258584]
+script = ExtResource("1_gpobt")
+
+[node name="Atmosphere" type="Sprite2D" parent="." unique_id=827847651]
+scale = Vector2(2, 2)
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1161744292]
+scale = Vector2(2, 2)
+texture = ExtResource("2_6huyh")

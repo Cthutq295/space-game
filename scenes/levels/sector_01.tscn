@@ -1,0 +1,323 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/level/level.gd" id="1_v0055"]
+[ext_resource type="PackedScene" path="res://scenes/world/planet.tscn" id="2_bsr6f"]
+[ext_resource type="PackedScene" path="res://scenes/world/defense_post.tscn" id="3_rrg4u"]
+[ext_resource type="PackedScene" path="res://scenes/world/turret_blaster.tscn" id="4_wf800"]
+[ext_resource type="PackedScene" path="res://scenes/world/turret_missile.tscn" id="5_gu0im"]
+[ext_resource type="PackedScene" path="res://scenes/world/asteroid_field.tscn" id="6_xfv66"]
+
+[node name="Sector01" type="Node2D" unique_id=227166137]
+script = ExtResource("1_v0055")
+
+[node name="Planets" type="Node2D" parent="." unique_id=1837686796]
+
+[node name="Terra" parent="Planets" unique_id=1354258584 instance=ExtResource("2_bsr6f")]
+max_hp = 2600.0
+is_home = true
+
+[node name="Lava" parent="Planets" unique_id=1577927941 instance=ExtResource("2_bsr6f")]
+position = Vector2(3365.3057, 2834.5579)
+kind = "lava"
+max_hp = 1100.0
+
+[node name="Ice" parent="Planets" unique_id=996776079 instance=ExtResource("2_bsr6f")]
+position = Vector2(-3838.302, 3045.8887)
+kind = "ice"
+max_hp = 1100.0
+
+[node name="Toxic" parent="Planets" unique_id=689419373 instance=ExtResource("2_bsr6f")]
+position = Vector2(-3921.6128, -2404.3613)
+kind = "toxic"
+max_hp = 1100.0
+
+[node name="Mars" parent="Planets" unique_id=2014969255 instance=ExtResource("2_bsr6f")]
+position = Vector2(3658.5166, -3553.2036)
+kind = "mars"
+max_hp = 1100.0
+
+[node name="Defenses" type="Node2D" parent="." unique_id=1506458562]
+
+[node name="TerraDefense" type="Node2D" parent="Defenses" unique_id=1218998909]
+
+[node name="DefensePost" parent="Defenses/TerraDefense" unique_id=58393778 instance=ExtResource("3_rrg4u")]
+position = Vector2(0, 414)
+max_flies = 6
+max_heavies = 2
+
+[node name="TurretBlaster1" parent="Defenses/TerraDefense" unique_id=630143318 instance=ExtResource("4_wf800")]
+position = Vector2(326.05557, 137.8541)
+
+[node name="TurretBlaster2" parent="Defenses/TerraDefense" unique_id=801944159 instance=ExtResource("4_wf800")]
+position = Vector2(43.642647, 351.29947)
+
+[node name="TurretBlaster3" parent="Defenses/TerraDefense" unique_id=61701116 instance=ExtResource("4_wf800")]
+position = Vector2(-282.41293, 213.4454)
+
+[node name="TurretMissile4" parent="Defenses/TerraDefense" unique_id=1858556103 instance=ExtResource("5_gu0im")]
+position = Vector2(-326.0556, -137.85408)
+
+[node name="TurretMissile5" parent="Defenses/TerraDefense" unique_id=444251393 instance=ExtResource("5_gu0im")]
+position = Vector2(-43.642574, -351.2995)
+
+[node name="TurretMissile6" parent="Defenses/TerraDefense" unique_id=701260225 instance=ExtResource("5_gu0im")]
+position = Vector2(282.41296, -213.44537)
+
+[node name="LavaDefense" type="Node2D" parent="Defenses" unique_id=983373783]
+
+[node name="DefensePost" parent="Defenses/LavaDefense" unique_id=844158305 instance=ExtResource("3_rrg4u")]
+position = Vector2(3079.2546, 2593.6204)
+
+[node name="TurretBlaster1" parent="Defenses/LavaDefense" unique_id=2071988378 instance=ExtResource("4_wf800")]
+position = Vector2(3654.5188, 2712.2805)
+
+[node name="TurretBlaster2" parent="Defenses/LavaDefense" unique_id=16892593 instance=ExtResource("4_wf800")]
+position = Vector2(3605.466, 3036.8423)
+
+[node name="TurretMissile3" parent="Defenses/LavaDefense" unique_id=355844802 instance=ExtResource("5_gu0im")]
+position = Vector2(3293.964, 3140.346)
+
+[node name="IceDefense" type="Node2D" parent="Defenses" unique_id=1008651983]
+
+[node name="DefensePost" parent="Defenses/IceDefense" unique_id=541219516 instance=ExtResource("3_rrg4u")]
+position = Vector2(-3532.8044, 2803.4607)
+
+[node name="TurretBlaster1" parent="Defenses/IceDefense" unique_id=1199709149 instance=ExtResource("4_wf800")]
+position = Vector2(-3772.7412, 3369.3105)
+
+[node name="TurretBlaster2" parent="Defenses/IceDefense" unique_id=1886339211 instance=ExtResource("4_wf800")]
+position = Vector2(-4096.8, 3251.02)
+
+[node name="TurretMissile3" parent="Defenses/IceDefense" unique_id=1094891340 instance=ExtResource("5_gu0im")]
+position = Vector2(-4138.37, 2908.5603)
+
+[node name="ToxicDefense" type="Node2D" parent="Defenses" unique_id=61025731]
+
+[node name="DefensePost" parent="Defenses/ToxicDefense" unique_id=1618093849 instance=ExtResource("3_rrg4u")]
+position = Vector2(-3551.6172, -2177.5151)
+
+[node name="TurretBlaster1" parent="Defenses/ToxicDefense" unique_id=76768072 instance=ExtResource("4_wf800")]
+position = Vector2(-4240.457, -2208.8765)
+
+[node name="TurretBlaster2" parent="Defenses/ToxicDefense" unique_id=1922282896 instance=ExtResource("4_wf800")]
+position = Vector2(-4240.457, -2599.8464)
+
+[node name="TurretMissile3" parent="Defenses/ToxicDefense" unique_id=1650876768 instance=ExtResource("5_gu0im")]
+position = Vector2(-3892.0215, -2777.189)
+
+[node name="MarsDefense" type="Node2D" parent="Defenses" unique_id=2033873822]
+
+[node name="DefensePost" parent="Defenses/MarsDefense" unique_id=1770216358 instance=ExtResource("3_rrg4u")]
+position = Vector2(3384.4866, -3287.0618)
+
+[node name="TurretBlaster1" parent="Defenses/MarsDefense" unique_id=1612865029 instance=ExtResource("4_wf800")]
+position = Vector2(3563.3591, -3860.822)
+
+[node name="TurretBlaster2" parent="Defenses/MarsDefense" unique_id=411216447 instance=ExtResource("4_wf800")]
+position = Vector2(3889.5054, -3777.5432)
+
+[node name="TurretMissile3" parent="Defenses/MarsDefense" unique_id=938403438 instance=ExtResource("5_gu0im")]
+position = Vector2(3963.225, -3449.1042)
+
+[node name="AsteroidFields" type="Node2D" parent="." unique_id=1017585349]
+
+[node name="Field01" parent="AsteroidFields" unique_id=1643157637 instance=ExtResource("6_xfv66")]
+position = Vector2(-2905, -5626)
+count = 13
+radius = 360.0
+
+[node name="Field02" parent="AsteroidFields" unique_id=415192619 instance=ExtResource("6_xfv66")]
+position = Vector2(-518, 5260)
+count = 8
+radius = 310.0
+
+[node name="Field03" parent="AsteroidFields" unique_id=857349822 instance=ExtResource("6_xfv66")]
+position = Vector2(-1714, -4167)
+count = 6
+radius = 160.0
+
+[node name="Field04" parent="AsteroidFields" unique_id=1285886420 instance=ExtResource("6_xfv66")]
+position = Vector2(6014, 279)
+radius = 330.0
+
+[node name="Field05" parent="AsteroidFields" unique_id=281186523 instance=ExtResource("6_xfv66")]
+position = Vector2(-950, -4729)
+count = 7
+radius = 340.0
+
+[node name="Field06" parent="AsteroidFields" unique_id=2061190303 instance=ExtResource("6_xfv66")]
+position = Vector2(543, 3198)
+count = 12
+radius = 300.0
+
+[node name="Field07" parent="AsteroidFields" unique_id=775825646 instance=ExtResource("6_xfv66")]
+position = Vector2(-3958, 1701)
+radius = 330.0
+
+[node name="Field08" parent="AsteroidFields" unique_id=1235496509 instance=ExtResource("6_xfv66")]
+position = Vector2(4526, -947)
+count = 13
+radius = 350.0
+
+[node name="Field09" parent="AsteroidFields" unique_id=79963484 instance=ExtResource("6_xfv66")]
+position = Vector2(1820, -3585)
+count = 13
+radius = 270.0
+
+[node name="Field10" parent="AsteroidFields" unique_id=925956100 instance=ExtResource("6_xfv66")]
+position = Vector2(-3152, -1141)
+radius = 190.0
+
+[node name="Field11" parent="AsteroidFields" unique_id=610632622 instance=ExtResource("6_xfv66")]
+position = Vector2(4002, 133)
+count = 8
+
+[node name="Field12" parent="AsteroidFields" unique_id=971744672 instance=ExtResource("6_xfv66")]
+position = Vector2(-5102, 2675)
+count = 8
+radius = 170.0
+
+[node name="Field13" parent="AsteroidFields" unique_id=556111593 instance=ExtResource("6_xfv66")]
+position = Vector2(1814, 355)
+count = 11
+radius = 180.0
+
+[node name="Field14" parent="AsteroidFields" unique_id=1450544535 instance=ExtResource("6_xfv66")]
+position = Vector2(1303, -4657)
+count = 8
+radius = 160.0
+
+[node name="Field15" parent="AsteroidFields" unique_id=793812120 instance=ExtResource("6_xfv66")]
+position = Vector2(2165, 4595)
+count = 7
+radius = 250.0
+
+[node name="Field16" parent="AsteroidFields" unique_id=149898341 instance=ExtResource("6_xfv66")]
+position = Vector2(3993, 3788)
+count = 8
+radius = 320.0
+
+[node name="Field17" parent="AsteroidFields" unique_id=1814173755 instance=ExtResource("6_xfv66")]
+position = Vector2(-6536, -22)
+count = 7
+radius = 310.0
+
+[node name="Field18" parent="AsteroidFields" unique_id=12743537 instance=ExtResource("6_xfv66")]
+position = Vector2(240, -5655)
+count = 13
+
+[node name="Field19" parent="AsteroidFields" unique_id=1352457058 instance=ExtResource("6_xfv66")]
+position = Vector2(-770, 4507)
+radius = 300.0
+
+[node name="Field20" parent="AsteroidFields" unique_id=1399226328 instance=ExtResource("6_xfv66")]
+position = Vector2(2287, 3902)
+count = 12
+
+[node name="Field21" parent="AsteroidFields" unique_id=766888452 instance=ExtResource("6_xfv66")]
+position = Vector2(2972, 1779)
+radius = 170.0
+
+[node name="Field22" parent="AsteroidFields" unique_id=182951156 instance=ExtResource("6_xfv66")]
+position = Vector2(-4166, 4246)
+count = 12
+radius = 340.0
+
+[node name="Field23" parent="AsteroidFields" unique_id=1577053863 instance=ExtResource("6_xfv66")]
+position = Vector2(-2991, -331)
+count = 11
+radius = 300.0
+
+[node name="Field24" parent="AsteroidFields" unique_id=475406805 instance=ExtResource("6_xfv66")]
+position = Vector2(5125, 2947)
+count = 14
+radius = 230.0
+
+[node name="Field25" parent="AsteroidFields" unique_id=155209501 instance=ExtResource("6_xfv66")]
+position = Vector2(2055, -5157)
+count = 7
+radius = 340.0
+
+[node name="Field26" parent="AsteroidFields" unique_id=1733510445 instance=ExtResource("6_xfv66")]
+position = Vector2(-5708, 2662)
+count = 9
+radius = 360.0
+
+[node name="Field27" parent="AsteroidFields" unique_id=440510498 instance=ExtResource("6_xfv66")]
+position = Vector2(-1512, -2321)
+count = 7
+radius = 310.0
+
+[node name="Field28" parent="AsteroidFields" unique_id=2071831171 instance=ExtResource("6_xfv66")]
+position = Vector2(1698, 2669)
+count = 6
+radius = 280.0
+
+[node name="Field29" parent="AsteroidFields" unique_id=1970324736 instance=ExtResource("6_xfv66")]
+position = Vector2(16, 3931)
+radius = 200.0
+
+[node name="Field30" parent="AsteroidFields" unique_id=2133985270 instance=ExtResource("6_xfv66")]
+position = Vector2(-5932, -1163)
+count = 6
+radius = 220.0
+
+[node name="Field31" parent="AsteroidFields" unique_id=1431686136 instance=ExtResource("6_xfv66")]
+position = Vector2(2512, -1952)
+count = 14
+
+[node name="Field32" parent="AsteroidFields" unique_id=1674127332 instance=ExtResource("6_xfv66")]
+position = Vector2(4138, -1698)
+count = 6
+radius = 320.0
+
+[node name="Field33" parent="AsteroidFields" unique_id=154467969 instance=ExtResource("6_xfv66")]
+position = Vector2(-2037, -34)
+count = 12
+radius = 300.0
+
+[node name="Field34" parent="AsteroidFields" unique_id=265485997 instance=ExtResource("6_xfv66")]
+position = Vector2(3643, -5379)
+count = 7
+radius = 220.0
+
+[node name="Field35" parent="AsteroidFields" unique_id=1886083857 instance=ExtResource("6_xfv66")]
+position = Vector2(-28, -3840)
+count = 8
+radius = 330.0
+
+[node name="Field36" parent="AsteroidFields" unique_id=295206097 instance=ExtResource("6_xfv66")]
+position = Vector2(-2495, 3909)
+count = 6
+radius = 190.0
+
+[node name="Field37" parent="AsteroidFields" unique_id=130934556 instance=ExtResource("6_xfv66")]
+position = Vector2(-4718, -632)
+count = 6
+radius = 290.0
+
+[node name="Field38" parent="AsteroidFields" unique_id=258081822 instance=ExtResource("6_xfv66")]
+position = Vector2(-5786, -2591)
+count = 6
+radius = 320.0
+
+[node name="Field39" parent="AsteroidFields" unique_id=1865288078 instance=ExtResource("6_xfv66")]
+position = Vector2(584, 5912)
+count = 12
+radius = 160.0
+
+[node name="Field40" parent="AsteroidFields" unique_id=542650954 instance=ExtResource("6_xfv66")]
+position = Vector2(1857, -2909)
+radius = 250.0
+
+[node name="Field41" parent="AsteroidFields" unique_id=1767140282 instance=ExtResource("6_xfv66")]
+position = Vector2(-2934, 1015)
+count = 6
+radius = 330.0
+
+[node name="Field42" parent="AsteroidFields" unique_id=1995810984 instance=ExtResource("6_xfv66")]
+position = Vector2(5034, -2433)
+radius = 220.0
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1672482153]
+position = Vector2(0, 504)

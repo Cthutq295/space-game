@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ai_ship.gd" id="1_qdpt7"]
+[ext_resource type="Material" path="res://materials/team_enemy.tres" id="2_taa0w"]
+[ext_resource type="Texture2D" path="res://assets/sprites/carrier.png" id="3_k7n51"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="4_2cjr8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0l3x"]
+radius = 44.0
+
+[node name="Carrier" type="CharacterBody2D" unique_id=2139829700]
+script = ExtResource("1_qdpt7")
+kind = "carrier"
+aggro_range = 0.0
+max_hull = 420.0
+loot = {
+"crystal": 4,
+"scrap": 28
+}
+explosion_size = 80.0
+thrust = 170.0
+max_speed = 95.0
+turn_speed = 0.8
+turn_response = 2.5
+push_strength = 3.0
+exhaust_width = 6.0
+exhaust_strength = 1.4
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1670982277]
+material = ExtResource("2_taa0w")
+scale = Vector2(2, 2)
+texture = ExtResource("3_k7n51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=42587550]
+shape = SubResource("CircleShape2D_d0l3x")
+
+[node name="Weapon" type="Node2D" parent="." unique_id=398502422]
+script = ExtResource("4_2cjr8")
+kind = 2
+damage = 40.0
+planet_damage_mult = 1.0
+speed = 520.0
+interval = 3.2
+life = 3.5
+blast_radius = 70.0
+sound = "plasma"
+sound_db = -4.0
+sound_pitch = 0.6
+
+[node name="Muzzle1" type="Marker2D" parent="Weapon" unique_id=434833725]
+position = Vector2(66, 0)
+
+[node name="Exhaust1" type="Marker2D" parent="." unique_id=1550692787]
+position = Vector2(-66, -12)
+
+[node name="Exhaust2" type="Marker2D" parent="." unique_id=1438345322]
+position = Vector2(-66, 12)

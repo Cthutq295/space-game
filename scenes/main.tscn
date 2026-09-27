@@ -1,0 +1,43 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_o6xl0"]
+[ext_resource type="PackedScene" path="res://scenes/levels/sector_01.tscn" id="2_tipki"]
+[ext_resource type="PackedScene" path="res://scenes/background/space_background.tscn" id="3_85g3d"]
+[ext_resource type="PackedScene" path="res://scenes/ships/player.tscn" id="4_choun"]
+[ext_resource type="Script" path="res://scripts/game_camera.gd" id="5_ya4ey"]
+[ext_resource type="Script" path="res://scripts/wave_director.gd" id="6_eb6dy"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="7_trceg"]
+
+[sub_resource type="Environment" id="Environment_a8y0u"]
+background_mode = 3
+glow_enabled = true
+glow_levels/2 = 1.0
+glow_levels/3 = 1.0
+glow_levels/4 = 0.8
+glow_levels/5 = 0.6
+glow_levels/6 = 0.3
+glow_intensity = 0.9
+glow_strength = 1.1
+
+[node name="Main" type="Node2D" unique_id=1986139254]
+script = ExtResource("1_o6xl0")
+level_scene = ExtResource("2_tipki")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1535952578]
+environment = SubResource("Environment_a8y0u")
+
+[node name="SpaceBackground" parent="." unique_id=1129231109 instance=ExtResource("3_85g3d")]
+
+[node name="World" type="Node2D" parent="." unique_id=838769734]
+
+[node name="Player" parent="World" unique_id=1317859950 instance=ExtResource("4_choun")]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=219477057]
+process_callback = 0
+script = ExtResource("5_ya4ey")
+
+[node name="WaveDirector" type="Node" parent="." unique_id=788762442]
+script = ExtResource("6_eb6dy")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=768497352]
+script = ExtResource("7_trceg")

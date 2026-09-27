@@ -1,0 +1,80 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ai_ship.gd" id="1_1h6gw"]
+[ext_resource type="Texture2D" path="res://assets/sprites/heavy.png" id="2_t135r"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="3_55rn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_box8o"]
+radius = 34.0
+
+[node name="Heavy" type="CharacterBody2D" unique_id=1687653229]
+script = ExtResource("1_1h6gw")
+kind = "heavy"
+aggro_range = 1300.0
+max_hull = 240.0
+loot = {
+"crystal": 2,
+"scrap": 16
+}
+explosion_size = 60.0
+thrust = 230.0
+max_speed = 130.0
+turn_speed = 1.3
+turn_response = 3.0
+push_strength = 2.0
+exhaust_width = 4.0
+exhaust_strength = 1.2
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2119851505]
+scale = Vector2(2, 2)
+texture = ExtResource("2_t135r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1889604836]
+shape = SubResource("CircleShape2D_box8o")
+
+[node name="Weapon" type="Node2D" parent="." unique_id=2024105020]
+script = ExtResource("3_55rn4")
+kind = 3
+damage = 18.0
+speed = 430.0
+interval = 1.5
+magazine = 8
+reload_time = 9.0
+blast_radius = 55.0
+sound = "missile"
+sound_db = -10.0
+sound_pitch = 0.85
+missile_turn = 2.4
+missile_accel = 650.0
+missile_life = 7.0
+show_rack = true
+
+[node name="Muzzle1" type="Marker2D" parent="Weapon" unique_id=930459572]
+position = Vector2(-1, -30)
+
+[node name="Muzzle2" type="Marker2D" parent="Weapon" unique_id=1084307637]
+position = Vector2(-1, 30)
+
+[node name="Muzzle3" type="Marker2D" parent="Weapon" unique_id=1822608911]
+position = Vector2(-1, -20)
+
+[node name="Muzzle4" type="Marker2D" parent="Weapon" unique_id=849527478]
+position = Vector2(-1, 20)
+
+[node name="Muzzle5" type="Marker2D" parent="Weapon" unique_id=1493826223]
+position = Vector2(-19, -30)
+
+[node name="Muzzle6" type="Marker2D" parent="Weapon" unique_id=607404376]
+position = Vector2(-19, 30)
+
+[node name="Muzzle7" type="Marker2D" parent="Weapon" unique_id=751703398]
+position = Vector2(-19, -20)
+
+[node name="Muzzle8" type="Marker2D" parent="Weapon" unique_id=1413542940]
+position = Vector2(-19, 20)
+
+[node name="Exhaust1" type="Marker2D" parent="." unique_id=227953873]
+position = Vector2(-50, -8)
+
+[node name="Exhaust2" type="Marker2D" parent="." unique_id=2079261160]
+position = Vector2(-50, 8)

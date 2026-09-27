@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lnsiw"]
+[ext_resource type="Texture2D" path="res://assets/sprites/flame.png" id="2_xsa8u"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ship.png" id="3_tkd5v"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1317859950]
+script = ExtResource("1_lnsiw")
+impact_threshold = 150.0
+impact_damage = 0.12
+explosion_size = 60.0
+drag = 0.55
+turn_speed = 7.0
+turn_response = 9.0
+team_tinted = false
+
+[node name="Flame1" type="Sprite2D" parent="." unique_id=478428233]
+self_modulate = Color(2.4, 1.9, 1.5, 1)
+position = Vector2(-37, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("2_xsa8u")
+hframes = 3
+
+[node name="Flame2" type="Sprite2D" parent="." unique_id=279305639]
+self_modulate = Color(2.4, 1.9, 1.5, 1)
+position = Vector2(-37, 5)
+scale = Vector2(2, 2)
+texture = ExtResource("2_xsa8u")
+hframes = 3
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=923179827]
+scale = Vector2(2, 2)
+texture = ExtResource("3_tkd5v")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=701479066]
+polygon = PackedVector2Array(26, 0, -4, -12, -14, -24, -24, -20, -24, 20, -14, 24, -4, 12)
+
+[node name="Nozzle" type="Marker2D" parent="." unique_id=1065953799]
+position = Vector2(-28, 0)

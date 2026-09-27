@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/turret.gd" id="1_x5742"]
+[ext_resource type="Material" path="res://materials/team_ally.tres" id="2_g1ui7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/turret_base.png" id="3_ln5lk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/turret_launcher.png" id="4_iscr2"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="5_fxtn3"]
+[ext_resource type="Script" path="res://scripts/level/radius_gizmo.gd" id="6_4bf1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ut8aa"]
+radius = 20.0
+
+[node name="TurretMissile" type="StaticBody2D" unique_id=1858556103]
+script = ExtResource("1_x5742")
+kind = "missile"
+attack_range = 1300.0
+turn_speed = 2.2
+max_hull = 160.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=854401758]
+shape = SubResource("CircleShape2D_ut8aa")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1650602125]
+material = ExtResource("2_g1ui7")
+scale = Vector2(2, 2)
+texture = ExtResource("3_ln5lk")
+
+[node name="Head" type="Node2D" parent="." unique_id=1724229595]
+
+[node name="HeadSprite" type="Sprite2D" parent="Head" unique_id=31677725]
+material = ExtResource("2_g1ui7")
+scale = Vector2(2, 2)
+texture = ExtResource("4_iscr2")
+
+[node name="Weapon" type="Node2D" parent="Head" unique_id=2144027105]
+script = ExtResource("5_fxtn3")
+kind = 3
+damage = 14.0
+speed = 520.0
+interval = 0.8
+magazine = 4
+reload_time = 9.0
+blast_radius = 50.0
+sound = "missile"
+missile_life = 5.0
+show_rack = true
+
+[node name="Muzzle1" type="Marker2D" parent="Head/Weapon" unique_id=176808509]
+position = Vector2(2, -12)
+
+[node name="Muzzle2" type="Marker2D" parent="Head/Weapon" unique_id=1402528241]
+position = Vector2(2, 12)
+
+[node name="Muzzle3" type="Marker2D" parent="Head/Weapon" unique_id=963694958]
+position = Vector2(2, -4)
+
+[node name="Muzzle4" type="Marker2D" parent="Head/Weapon" unique_id=1901053124]
+position = Vector2(2, 4)
+
+[node name="RangeGizmo" type="Node2D" parent="." unique_id=118687115]
+script = ExtResource("6_4bf1o")
+radius = 1300.0
+color = Color(1, 0.6, 0.3, 0.35)
+radius_property = "attack_range"
